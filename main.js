@@ -1,4 +1,4 @@
-//changed smth
+//changed smth again
 var ldm = require('longDistantMining')
 var spawn = require('spawn')
 var roleHarvester = require('role.harvester');
@@ -37,6 +37,7 @@ module.exports.loop = function () {
             if (creep.memory.x === 1) {
                 ldm.mine(creep, "E52N8", "E52N9"); //TO CONFIGURE
             } else {
+                console.log("pathing right"+creep)
                 ldm.mine(creep, "E53N9", "E52N9"); //TO CONFIGURE
             }
         }else if (creep.memory.role == 'scout') {
