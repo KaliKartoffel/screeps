@@ -31,11 +31,18 @@ module.exports.loop = function () {
         } else if (creep.memory.role == 'builder') {
             roleBuilder.run(creep);
         } else if (creep.memory.role == 'ldm') {
-            ldm.mine(creep, "E52N8", "E52N9");; //TO CONFIGURE
+            if (creep.memory.x === false) {
+                creep.memory.x = Math.round(Math.random());
+            }
+            if (creep.memory.x === 1) {
+                ldm.mine(creep, "E52N8", "E52N9"); //TO CONFIGURE
+            } else {
+                ldm.mine(creep, "E53N9", "E52N9"); //TO CONFIGURE
+            }
         }else if (creep.memory.role == 'scout') {
             
         } else if (creep.memory.test) {
-            ldm.mine(creep, "E52N8", "E52N9");
+            creep.memory.x = Math.round(Math.random());
         } else {
             console.log("Main loop else trigered");
             roleHarvester.run(creep);

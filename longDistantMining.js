@@ -1,11 +1,12 @@
 var longDistantMiner = {
-    mine: function(creep, destRoom, homeRoom) {
+    mine: function(creep, destRoom, homeRoom) { 
         if(!creep.memory.homeRoom) {
             creep.memory.homeRoom = creep.room;
         }
         var working = creep.memory.working;
         if (!working && creep.carry.energy == creep.carryCapacity) {
             creep.memory.working = true;
+            creep.memory.x = false;
         } else if (working && creep.carry.energy == 0) {
             creep.memory.working = false;
         }

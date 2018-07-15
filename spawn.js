@@ -32,7 +32,7 @@ var spawn = {
         } else if (upgraderCount < 0) {
             spawnCreepWorking.run(spawn,[WORK,WORK,WORK,MOVE,MOVE,CARRY], "Upgrader" + Game.time, [["role", "upgrader"], ["working", false], ["x", false]]);
         } else {
-            spawnCreepWorking.run(spawn,[WORK,WORK,MOVE,MOVE,MOVE,CARRY,CARRY], "Ldm" + Game.time, [["role", "ldm"], ["working", false], ["homeRoom", false]]);
+            spawnCreepWorking.run(spawn,[WORK,WORK,MOVE,MOVE,MOVE,CARRY,CARRY], "Ldm" + Game.time, [["role", "ldm"], ["working", false], ["homeRoom", false], ["x", false]]);
         }
 	}
 };
