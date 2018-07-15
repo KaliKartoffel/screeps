@@ -15,7 +15,7 @@ var harvesterClose = {
             if(target) {
                 creep.transfer(target);
             } else {
-                targets = creep.pos.findInRange(FIND_MY_STRUCTURES, 1);
+                targets = creep.pos.findInRange(FIND_MY_CREEPS, 1);
                 for (let target in targets) {
                     if (creep.memory.role == "dispencer") {
                         creep.transfer(target);
