@@ -1,0 +1,10 @@
+Cache info to reduce cpu overhead
+optimize harvesting cycles with multiple sources, ecspecially creeps blocking each other after harvesting
+optimize and automate Spawning of creeps (optionally some maths with predefined cpu expenditure to callculate optimal solutions later on)
+Spawning creeps after the colonies needs, not after count (usage of spawnQue?)
+defensive and offensive capabilitys by bots and structures
+automated building of facilities
+cpu management, caching to allow for long term susatainability
+scouting patterns
+
+obv. optimizing the code in respect on readability and maintainability

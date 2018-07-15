@@ -31,6 +31,9 @@ var spawn = {
             spawnCreepWorking.run(spawn,[WORK,WORK,WORK,MOVE,MOVE,CARRY], "Repairer" + Game.time, [["role", "repairer"], ["working", false], ["x", false]]);
         } else if (upgraderCount < 0) {
             spawnCreepWorking.run(spawn,[WORK,WORK,WORK,MOVE,MOVE,CARRY], "Upgrader" + Game.time, [["role", "upgrader"], ["working", false], ["x", false]]);
+        } else if(Memory.SpawnQue[0][0] == "harvesterClose") {
+            spawnCreepWorking.run(spawn,[WORK,WORK,WORK,WORK,MOVE,CARRY], "HarvesterClose_" + Memory.SpawnQue[0][1] + "_" + Game.time, [["role", "harvesterClose"], ["mining", false],["source", Memory.SpawnQue[0][1]], ["pos", Memory.SpawnQue[0][2]]]);
+            Memory.SpawnQue.shift();
         } else {
             spawnCreepWorking.run(spawn,[WORK,WORK,MOVE,MOVE,MOVE,CARRY,CARRY], "Ldm" + Game.time, [["role", "ldm"], ["working", false], ["homeRoom", false], ["x", false]]);
         }

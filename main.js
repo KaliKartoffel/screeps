@@ -18,8 +18,8 @@ module.exports.loop = function () {
     }
     for(let name in Game.creeps) {
         var creep = Game.creeps[name];
-        if (creep.ticksToLive == 1) {
-            Memory.SpawnQue.push(creep.memory.role)
+        if (creep.ticksToLive == 1 && creep.memory.role == "harvesterClose") {
+            Memory.SpawnQue.push([creep.memory.role, creep.memory.source, creep.memory.pos]);
             console.log("Pushing " + creep.memory.role + " to Que")
         }
         if(creep.memory.role == 'harvester') {
