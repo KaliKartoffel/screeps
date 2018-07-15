@@ -18,12 +18,13 @@ var roleRepairer = {
         }
         else {
             sites = creep.room.find(FIND_STRUCTURES, {filter: (n) => n.structureType == STRUCTURE_WALL || n.structureType == STRUCTURE_ROAD || n.structureType == STRUCTURE_RAMPART});
+            sites = _.sortBy(sites, s => s.hits)
             for (let i in sites) {
-                console.log(sites)
                 if (sites.length) {
                     if (sites[i].structureType == STRUCTURE_ROAD && sites[i].hits < 20000 && creep.memory.role == "roadRepairer") {
                         if(creep.repair(sites[i]) == ERR_NOT_IN_RANGE) {
                             creep.moveTo(sites[i]);
+                            break;
                         }
                     } else if (sites[i].structureType == STRUCTURE_RAMPART && sites[i].hits < 15000 && creep.memory.role == "repairer") {
                         if(creep.repair(sites[i]) == ERR_NOT_IN_RANGE) {

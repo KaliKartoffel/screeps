@@ -10,6 +10,7 @@ module.exports.loop = function () {
     for(var i in Memory.creeps) {
         if(!Game.creeps[i]) {
             delete Memory.creeps[i];
+            console.log("deleating creep mem")
         }
     }
     if (Game.spawns["Spawn1"].room.energyAvailable >= 450) {
@@ -19,6 +20,7 @@ module.exports.loop = function () {
         var creep = Game.creeps[name];
         if (creep.ticksToLive == 1) {
             Memory.SpawnQue.push(creep.memory.role)
+            console.log("Pushing " + creep.memory.role + " to Que")
         }
         if(creep.memory.role == 'harvester') {
             roleHarvester.run(creep);
@@ -35,6 +37,7 @@ module.exports.loop = function () {
             if (creep.memory.x === 1) {
                 ldm.mine(creep, "E52N8", "E52N9"); //TO CONFIGURE
             } else {
+                //console.log("pathing right"+creep)
                 ldm.mine(creep, "E53N9", "E52N9"); //TO CONFIGURE
             }
         }else if (creep.memory.role == 'scout') {
