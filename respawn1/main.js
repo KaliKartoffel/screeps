@@ -1,6 +1,5 @@
 var garbageCollector = require('garbageCollector');
 var spawnCreeps = require('spawnCreeps');
-var spawnCreepWorking = require('spawnCreepWorking')
 
 module.exports.loop = function () {
     spawnCreeps.run();
