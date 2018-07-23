@@ -1,10 +1,13 @@
-
+var garbageCollector = require('garbageCollector');
+var spawnCreeps = require('spawnCreeps');
+var spawnCreepWorking = require('spawnCreepWorking')
 
 module.exports.loop = function () {
-    var spawnCreeps = require('spawnCreeps');
-    var garbageCollector = require('garbageCollector');
+    spawnCreeps.run();
+    garbageCollector.run();
 
-    for (let creep of Game.creeps) {
+    for (let i in Game.creeps) {
+        creep = Game.creeps[i];
         if (creep.memory.role === "harvesterClose") {
             var harvesterClose = require('harvesterClose');
             harvesterClose.run(creep); 
@@ -13,4 +16,4 @@ module.exports.loop = function () {
             carry.run(creep);
         }
     }
-}
+} 
