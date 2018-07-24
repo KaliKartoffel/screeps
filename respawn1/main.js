@@ -2,8 +2,8 @@ var garbageCollector = require('garbageCollector');
 var spawnCreeps = require('spawnCreeps');
 
 module.exports.loop = function () {
-    spawnCreeps.run();
     garbageCollector.run();
+    spawnCreeps.run();
 
     for (let i in Game.creeps) {
         creep = Game.creeps[i];
