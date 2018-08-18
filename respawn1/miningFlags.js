@@ -1,8 +1,9 @@
 var mineFlags = {
-    placeFlags: function() { 
-        for (let roomName in Memomy.myRooms) {
+    run: function() { 
+        for (let roomName of Memory.myRooms) {
             if (!Memory.createdMiningFlags.includes(roomName)) {
                 //placeFlag
+                console.log("creatingMiningFlag");
                 placeFlag(roomName)
             } else {
                 
@@ -19,20 +20,20 @@ function placeFlag (roomName) {
         var position = source.pos
         var adjacentPositions = [];
         for (let i = -1; i < 1; i++) {
-            adjacentPositions.add(new RommPosition(position.x + i, position.y + 1, rommName));
+            adjacentPositions.push(new RoomPosition(position.x + i, position.y + 1, roomName));
         }
         for (let i = -1; i < 1; i++) {
-            adjacentPositions.add(new RommPosition(position.x + i, position.y - 1, rommName));
+            adjacentPositions.push(new RoomPosition(position.x + i, position.y - 1, roomName));
         }
-        adjacentPositions.add(new RommPosition(position.x + 1, position.y, rommName));
-        adjacentPositions.add(new RommPosition(position.x - 1, position.y, rommName));
+        adjacentPositions.push(new RoomPosition(position.x + 1, position.y, roomName));
+        adjacentPositions.push(new RoomPosition(position.x - 1, position.y, roomName));
 
         var adjacentTerrainPositions = [];
         for (let position of adjacentPositions) {
             var objectsOnPos = room.lookAt(position);
             for (let i in objectsOnPos) {
-                if(objectsOnPos[i] == "terrain") {
-                    adjacentTerrainPositions.add(possition)
+                if(objectsOnPos[i]["type"] == "terrain") {
+                    adjacentTerrainPositions.push(position)
                     break;
                 }
             }
@@ -48,6 +49,7 @@ function placeFlag (roomName) {
             }
         }
         room.createFlag(bestPos, roomName + "miningFlag" + i);
+        Memory.createdMiningFlags.push(roomName);
     }
 }
 
