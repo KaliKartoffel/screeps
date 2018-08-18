@@ -2,7 +2,6 @@ var mineFlags = {
     run: function() { 
         for (let roomName of Memory.myRooms) {
             if (!Memory.createdMiningFlags.includes(roomName)) {
-                //placeFlag
                 console.log("creatingMiningFlag");
                 placeFlag(roomName)
             } else {
@@ -39,15 +38,23 @@ function placeFlag (roomName) {
             }
         }
         var bestPos = {};
+        var bestPath = {};
+        var bestPathToSource = {};
+        var startingPos = {}
         var bestPosPathLength = 10000; //random big number
         for (let position of adjacentTerrainPositions) {
             var path = position.findPathTo(Game.spawns["Spawn1"]);
-            var pathLength = Object.keys(path).length;
+            var pathLength = path.length;
             if(pathLength < bestPosPathLength) {
                 bestPos = position;
+                bestPath = path;
+                var startingPosition = new RoomPosition(path[pathLength - 1]["x"], path[pathLength - 1]["y"], roomName);
+                bestPathToSource = Room.serializePath(startingPosition.findPathTo(position));
+                startingPos = Room.serializePath(startingPosition);
                 bestPosPathLength = pathLength;
             }
         }
+        Memory.sources[source.id] = [source.id, bestPath, bestPathToSource, startingPos];
         room.createFlag(bestPos, roomName + "miningFlag" + i);
         Memory.createdMiningFlags.push(roomName);
     }
