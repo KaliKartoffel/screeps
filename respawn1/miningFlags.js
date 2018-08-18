@@ -47,14 +47,14 @@ function placeFlag (roomName) {
             var pathLength = path.length;
             if(pathLength < bestPosPathLength) {
                 bestPos = position;
-                bestPath = path;
+                bestPath = Room.serializePath(path);
                 var startingPosition = new RoomPosition(path[pathLength - 1]["x"], path[pathLength - 1]["y"], roomName);
                 bestPathToSource = Room.serializePath(startingPosition.findPathTo(position));
-                startingPos = Room.serializePath(startingPosition);
+                startingPos = startingPosition;
                 bestPosPathLength = pathLength;
             }
         }
-        Memory.sources[source.id] = [source.id, bestPath, bestPathToSource, startingPos];
+        Memory.sources[source.id] = [bestPath, bestPathToSource, startingPos];
         room.createFlag(bestPos, roomName + "miningFlag" + i);
         Memory.createdMiningFlags.push(roomName);
     }
