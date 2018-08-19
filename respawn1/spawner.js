@@ -4,12 +4,12 @@ var spawner = {
     run: function (spawn) {
         //TODO: SpawnQue, just for the start:
         if (spawn.energy == 300) {
-            var carryCoun = 0
+            var carryCount = 0
             var minerCount = 0;
             for (let i in Game.creeps) {
                 switch (Game.creeps[i].memory.role) {
                     case "carry":
-                        carryCoun++;
+                        carryCount++;
                         break;
                     case "miner":
                         minerCount++;
@@ -23,7 +23,7 @@ var spawner = {
             } else if (carryCount < 1) {
                 spawnCreepWoking.run(spawn, [MOVE,CARRY,CARRY,CARRY], "test transport" + Game.time, {role: "carry", mySource: "59f1a24382100e1594f39ac2", dispercing: false});
             } else {
-                spawnCreepWoking.run(spawn, [MOVE,CARRY,WORK], "test upgrader" + Game.time, {role: "upgrader", mySource: "59f1a24382100e1594f39ac1", mining: false});
+                spawnCreepWoking.run(spawn, [MOVE,CARRY,WORK,WORK], "test upgrader" + Game.time, {role: "upgrader", mySource: "59f1a24382100e1594f39ac1", mining: false});
             }
         }
     }

@@ -11,8 +11,8 @@ var roleUpgrader = {
             }
         }
         else { 
-            if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(creep.room.controller);
+            if(creep.build(creep.pos.getClosestByRange(FIND_CONSTRUCTION_SITES)) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(creep.pos.getClosestByRange(FIND_CONSTRUCTION_SITES));
             }
         }
 	}
