@@ -18,9 +18,9 @@ function placeFlag (roomName) {
     for (let i in sources) {
         var source = sources[i];
         var pathToSource = mySpawn.pos.findPathTo(source);
-        var pathToSpawn = source.pos.findPathTo(mySpawn);
+        var pathToCont = source.pos.findPathTo(mySpawn);
         Memory.sources[source.id] = {pathToSource: pathToSource, pathToCont: pathToCont, start: new RoomPosition(pathToSource[0]["x"], pathToSource[0]["y"], roomName), dispencingPos: new RoomPosition(pathToSource[1]["x"], pathToSource[1]["y"], roomName)};
-        room.createFlag(new RoomPosition(pathToSpawn[0]["x"], pathToSpawn[0]["y"], roomName), "miningFlag" + i + roomName);
+        room.createFlag(new RoomPosition(pathToCont[0]["x"], pathToCont[0]["y"], roomName), "miningFlag" + i + roomName);
     }
     Memory.createdMiningFlags.push(roomName);
 }
