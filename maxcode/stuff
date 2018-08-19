@@ -1,0 +1,9 @@
+/*var minimumNumberOfHarvester = 5;
+    var numberOfHarvester = _.sum(Game.creeps, (c) => c.memory.role == 'harvester');
+    console.log(numberOfHarvesters); 
+    var name = Game.spawns["Spawn1"].spawnCreep([WORK,WORK,CARRY,MOVE], undefined,
+        {working: false, role: "upgrader"})
+    
+    if (name != undefined) {
+        console.log("Spawned new creep: " + name);
+    }
