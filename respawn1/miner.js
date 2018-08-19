@@ -3,7 +3,7 @@ var miner = {
         if (creep.memory.mining && creep.carry.energy == cappacity) {
             creep.memory.mining = false;
         } else if (!creep.memory.dispencing && creep.carry.energy == 0) {
-            creep.memory.dispencing = true;
+            creep.memory.mining = true;
         }
 
         if (creep.memory.mining) {
@@ -13,7 +13,7 @@ var miner = {
                 }
             }
         } else {
-            creep.transfer(creep.pos.findInRange(FIND_MY_CREEPS,1 , {filter: (object) => object.memory.role == "carry"}), RESOURCE_ENERGY);
+            creep.transfer(creep.pos.findInRange(FIND_MY_CREEPS,1 , {filter: (object) => object.memory.role == "carry"})[0], RESOURCE_ENERGY);
         }
         
     }
