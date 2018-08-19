@@ -11,7 +11,7 @@ module.exports.loop = function () {
         for (let creep of creeps) {
             switch (creep.memory.role) {
                 case "carry":
-                    //carry.run
+                    carry.run;
                     break;
                 case "miner":
                     //miner.run;
