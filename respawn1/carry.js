@@ -2,7 +2,7 @@ var carry = {
     run: function(creep) {
         if (creep.memory.dispencing && creep.carry.energy == 0) {
             creep.memory.dispencing = false;
-        } else if (!creep.memory.dispencing && creep.carry.energy == creep.carry.cappacity) {
+        } else if (!creep.memory.dispencing && creep.carry.energy == creep.carryCapacity) {
             creep.memory.dispencing = true;
         }
 

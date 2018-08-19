@@ -4,6 +4,14 @@ var roleCarry = require("carry");
 
 module.exports.loop = function () {
 
+    //memory cleaner
+    //should be done by SpawnQue for performances sake
+    for(let i in Memory.creeps) {
+        if(!Game.creeps[i]) {
+            delete Memory.creeps[i];
+        }
+    }
+
     placeMiningFlags.run(Game.spawns["Spawn1"].room.name);
 
     for (let i in Game.rooms) {
