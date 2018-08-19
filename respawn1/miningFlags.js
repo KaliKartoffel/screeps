@@ -17,12 +17,12 @@ function placeFlag (roomName) {
     var mySpawn = Game.spawns["Spawn1"];
     for (let i in sources) {
         var source = sources[i];
-        var pathToSource = spawn.findPathTo(source);
-        var pathToSpawn = source.findPathTo(mySpawn);
+        var pathToSource = mySpawn.pos.findPathTo(source);
+        var pathToSpawn = source.pos.findPathTo(mySpawn);
         Memory.sources[source.id] = [pathToSource, pathToSpawn, new RoomPosition(pathToSource[0]["x"], pathToSource[0]["y"], roomName)];
         room.createFlag(new RoomPosition(pathToSpawn[0]["x"], pathToSpawn[0]["y"], roomName), "miningFlag" + i + roomName);
-        Memory.createdMiningFlags.push(roomName);
     }
+    Memory.createdMiningFlags.push(roomName);
 }
 
 

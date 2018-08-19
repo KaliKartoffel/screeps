@@ -1,5 +1,5 @@
 var placeMiningFlags = require("miningFlags");
-var carry = require("miner");
+var miner = require("miner");
 
 module.exports.loop = function () {
 
@@ -11,10 +11,10 @@ module.exports.loop = function () {
         for (let creep of creeps) {
             switch (creep.memory.role) {
                 case "carry":
-                    carry.run;
+                    //carry.run;
                     break;
                 case "miner":
-                    //miner.run;
+                    miner.run;
                     break;
                 default:
                     console.log("creep Without role");
