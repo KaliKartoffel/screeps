@@ -1,24 +1,27 @@
+var roleHarvester = require('role.harvester');
+var roleUpgrader = require('role.upgrader');
+var spawn = require('spawn');
+
 module.exports.loop = function () {
+    
+    for(var i in Memory.creeps) {
+        if(!Game.creeps[i]) {
+            delete Memory.creeps[i];
+        }
+    }
+    
+    if (Game.spawns["Spawn1"].room.energyAvailable >= 300) {
+        spawn.run("Spawn1");
+    }
+    
     for (let name in Game.creeps) {
         var creep = Game.creeps[name];
         
-        if (creep.memory.working == true && creep.carry.energy == 0) {
-            creep.memory.working = false;
+        if (creep.memory.role == 'harvester') {
+        roleHarvester.run(creep);
         }
-        else if (creep.memory.working == false && creep.carry.energy == creep.carryCapacity) {
-            creep.memory.working = true;
-        }
-        
-        if (creep.memory.working == true)  {
-            if (creep.transfer(Game.spawns.Spawn1, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE)  {
-                creep.moveTo(Game.spawns.Spawn1);
-            }
-        }
-        else {
-            var source = creep.pos.findClosestByPath(FIND_SOURCES);
-            if (creep.harvest(source) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(source);
-            }
+        else if (creep.memory.role == 'upgrader') {
+            roleUpgrader.run(creep);
         }
     }
-};
+}; 
