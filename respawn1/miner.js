@@ -13,7 +13,7 @@ var miner = {
                 }
             }
         } else {
-            creep.transfer(creep.pos.findInRange(FIND_MY_CREEPS,1 , {filter: (object) => object.memory.role == "carry"})[0], RESOURCE_ENERGY);
+            creep.transfer(creep.pos.findInRange(FIND_MY_CREEPS, 1, {filter: object => object.memory.role == "carry"})[0], RESOURCE_ENERGY);
         }
         
     }

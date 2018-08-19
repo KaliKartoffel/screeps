@@ -1,9 +1,10 @@
 var placeMiningFlags = require("miningFlags");
 var miner = require("miner");
 var roleCarry = require("carry");
+var spawner = require("spawner");
+var upgrader = require("upgrader");
 
 module.exports.loop = function () {
-
     //memory cleaner
     //should be done by SpawnQue for performances sake
     for(let i in Memory.creeps) {
@@ -12,6 +13,7 @@ module.exports.loop = function () {
         }
     }
 
+    spawner.run(Game.spawns["Spawn1"]);
     placeMiningFlags.run(Game.spawns["Spawn1"].room.name);
 
     for (let i in Game.rooms) {
@@ -24,6 +26,9 @@ module.exports.loop = function () {
                     break;
                 case "miner":
                     miner.run(creep);
+                    break;
+                case "upgrader":
+                    upgrader.run(creep);
                     break;
                 default:
                     console.log("creep Without role");
