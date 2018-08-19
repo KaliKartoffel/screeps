@@ -11,8 +11,8 @@ var roleUpgrader = {
             }
         }
         else { 
-            if(creep.build(creep.pos.getClosestByRange(FIND_CONSTRUCTION_SITES)) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(creep.pos.getClosestByRange(FIND_CONSTRUCTION_SITES));
+            if(creep.build(creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES)) == ERR_NOT_IN_RANGE) {
+                creep.moveTo(creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES));
             }
         }
 	}
