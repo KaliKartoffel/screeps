@@ -18,6 +18,7 @@ var spawner = {
                         break;
                 }
             }
+            console.log(minerCount, transportCount);
             if (minerCount < 1) {
                 spawnCreepWoking.run(spawn, [MOVE,WORK,WORK,CARRY], "test miner" + Game.time, {role: "miner", mySource: "59f1a24382100e1594f39ac2", mining: false});
             } else if (transportCount < 1) {

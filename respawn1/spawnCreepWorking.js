@@ -1,9 +1,11 @@
 var spawnCreepWorking = {
-    run: function(spawn, workStats, name, memory) { 
-        Game.spawns[spawn].spawnCreep(workStats, name)
-        for (let pair of memory) {
-            key = pair[0]
-            Game.creeps[name].memory[key] = pair[1];
+    run: function(spawn, workStats, name, memory) {
+        try {
+            console.log(memory)
+            spawn.spawnCreep(workStats, name)
+            Game.creeps[name].memory = memory; 
+        } catch (error) {
+            
         }
 	}
 };
