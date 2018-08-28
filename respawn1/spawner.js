@@ -25,10 +25,10 @@ var spawner = {
                 }
                 if (minerCount < 1) {
                     spawnCreepWoking.run(spawn, [MOVE, WORK, WORK, CARRY], "test miner" + Game.time, { role: "miner", mySource: "59f1a18d82100e1594f3888c", mining: true });
-                } else if (carryCount < 1) {
+                } else if (carryCount < 3) {
                     spawnCreepWoking.run(spawn, [MOVE, CARRY, CARRY, CARRY], "test carry" + Game.time, { role: "carry", mySource: "59f1a18d82100e1594f3888c", dispercing: false });
                 } else if (upgraderCount < 1) {
-                    spawnCreepWoking.run(spawn, [MOVE, CARRY, CARRY, CARRY], "test upgrader" + Game.time, { role: "upgrader", mySource: "59f1a18d82100e1594f3888b", mining: false });
+                    spawnCreepWoking.run(spawn, [MOVE, CARRY, WORK, WORK], "test upgrader" + Game.time, { role: "upgrader", mySource: "59f1a18d82100e1594f3888b", mining: false });
                 } else {
                     spawnCreepWoking.run(spawn, [MOVE, CARRY, WORK, WORK], "test builder" + Game.time, { role: "builder", mySource: "59f1a18d82100e1594f3888b", mining: false });
                 }
