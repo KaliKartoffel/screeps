@@ -3,8 +3,10 @@ var miner = require("miner");
 var roleCarry = require("carry");
 var spawner = require("spawner");
 var dispercer = require("dispercer");
-var upgrader1 = require("upgrader0");
-var builder1 = require("builder0");
+var upgrader0 = require("upgrader0");
+var upgrader1 = require("upgrader1");
+var builder0 = require("builder0");
+var builder1 = require("builder1");
 
 module.exports.loop = function () {
     //memory cleaner
@@ -33,10 +35,10 @@ module.exports.loop = function () {
                         miner.run(creep);
                         break;
                     case "upgrader":
-                        upgrader1.run(creep);
+                        upgrader0.run(creep);
                         break;
                     case "builder":
-                        builder1.run(creep);
+                        builder0.run(creep);
                         break;
                     default:
                         console.log("creep Without role");

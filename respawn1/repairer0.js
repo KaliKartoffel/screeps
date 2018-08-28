@@ -1,4 +1,4 @@
-var upgrader = {
+var repairer = {
     run: function(creep) {
         if(creep.memory.mining && creep.carry.energy === creep.carryCapacity) {
             creep.memory.mining = false;
@@ -11,11 +11,12 @@ var upgrader = {
             }
         }
         else { 
-            if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
+            if(Game.getObjectById(creep.memory.repairId).hits == Game.getObjectById(creep.memory.repairId).hitsMax) {
+                creep.memory.repairId = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {filter: object => {object.hits === object.hitsMax;}});
                 creep.moveTo(creep.room.controller);
             }
         }
 	}
 };
 
-module.exports = upgrader;
+module.exports = repairer;
