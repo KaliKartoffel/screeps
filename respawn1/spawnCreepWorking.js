@@ -5,7 +5,7 @@ var spawnCreepWorking = {
             spawn.spawnCreep(workStats, name)
             Game.creeps[name].memory = memory; 
         } catch (error) {
-            
+            console.log(error)
         }
 	}
 };
