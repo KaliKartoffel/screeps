@@ -9,7 +9,7 @@ var builder0 = require("builder0");
 var builder1 = require("builder1");
 
 module.exports.loop = function () {
-    //memory cleaner
+    //memory cleaner test
     //should be done by SpawnQue for performances sake
     for(let i in Memory.creeps) {
         if(!Game.creeps[i]) {
